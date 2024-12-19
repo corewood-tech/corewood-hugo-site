@@ -23,10 +23,10 @@ run: clean build_image
 	podman run -it -p 1313:1313 -v "$(PWD)/$(site_dir):/src" corewood-hugo-site server --forceSyncStatic --buildDrafts --watch
 
 .PHONY: add_theme
-add_theme: theme_repo = https://github.com/xioyito/NewBee.git
+add_theme: theme_repo = https://github.com/jpanther/congo.git
 add_theme:
 	@echo ">> Adding submodule for $(theme_repo)"
-	git submodule add --force "$(theme_repo)" "$(site_dir)/themes/newbee"
+	git submodule add --force "$(theme_repo)" "$(site_dir)/themes/congo"
 
 update_submodules:
 	git submodule update --init --recursive --rebase --remote

@@ -1,146 +1,15 @@
-baseURL: 'https://example.org/'
-languageCode: 'en-us'
-title: 'Corewood, LLC'
-theme: newbee
+baseURL: 'https://corewood.info/'
+languageCode: 'en'
+title: 'Corewood LLC'
+theme: congo
 
-defaultContentLanguage: en
-enableRobotsTXT: true
-enableGitInfo: false
-summaryLength: 50
-hasCJKLanguage: true
-taxonomies:
-  category: categories
-  tag: tags
-  series: series
-params:
-  author:
-    name: xioyito
-    description: Be Water, My Friend.
-    image: /images/author.jpeg
-    link: https://github.com/xioyito
-  site:
-    onlyOneLang: false
-    mode: auto
-  page:
-    homeTopImg: /images/home.jpg
-    homeTitle: XIOYITO
-    homeTitleFontSize: 40
-    homeContent: Be Water, My Friend
-    homeContentFontSize: 20
-    categoryTopImg: /images/categories.jpg
-    categoryDes: description of categories page
-    seriesTopImg: /images/series.jpg
-    seriesDes: description of series page
-    tagTopImg: /images/tag.jpg
-    tagDes: description of tags page
-    allPostsTopImg: /images/allPosts.jpg
-    allPostsDes: description of allposts page
-    aboutTopImg: /images/about.jpg
-    aboutDes: description of about page
-    postsTopImg: /images/default.jpg
-    maxHomePostCount: 5
-    maxPageRelatedCount: 5
-    maxPageNewestCount: 5
-  valine:
-    enable: false
-    appid: xxxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxx
-    appkey: xxxxxxxxxxxxxxxxxxxxxxxx
-    placeholder: 输入你的评论
-    avatar: robohash
-    requiredFields:
-      - nick
-    visitor: true
-    pageSize: 5
-  footer:
-    enable: true
-    copyRight: true
-    from: 2022
-    visitor: true
-    themeInfo: true
-  aplayer:
-    enable: false
-    server: netease
-    type: playlist
-    id: 752439587
-    fixed: true
-    autoplay: false
-    loop: all
-    order: random
-    preload: auto
-    list_folded: ture
-    list_max_height: 500px
-    lrc_type: 1
-related:
-  threshold: 0
-  includeNewer: true
-  toLower: false
-  indices:
-    - name: categories
-      weight: 100
-      toLower: false
-    - name: tags
-      weight: 80
-      toLower: false
-    - name: date
-      weight: 10
-markup:
-  highlight:
-    codeFences: true
-    guessSyntax: false
-    hl_Lines: ""
-    lineAnchors: ""
-    lineNoStart: 1
-    lineNos: true
-    anchorLineNos: false
-    lineNumbersInTable: true
-    noClasses: false
-    noHl: false
-    style: monokailight
-    tabWidth: 4
 languages:
   en:
-    languageName: English
-    weight: 1
-    contentDir: content/english
-    menus:
-      main:
-        - name: Home
-          url: /en
-          weight: 1
-          pre: <i class='fa fa-home'></i>
-        - name: Posts
-          url: /en/posts
-          weight: 2
-          pre: <i class='fa fa-book'></i>
-        - name: Categories
-          url: /en/categories
-          weight: 3
-          pre: <i class='fa fa-folder-open'></i>
-        - name: Series
-          url: /en/series
-          weight: 4
-          pre: <i class='fa fa-gears'></i>
-        - name: Tags
-          url: /en/tags
-          weight: 5
-          pre: <i class='fa fa-tags'></i>
-        - name: About
-          url: /en/about
-          weight: 6
-          pre: <i class='fa fa-info-circle'></i>
-      social:
-        - name: GitHub
-          url: https://github.com/xioyito
-          pre: <i class='fa fa-github'></i>
-          weight: 1
-        - name: YouTube
-          url: https://www.youtube.com
-          pre: <i class='fa fa-youtube'></i>
-          weight: 2
-      sponsor:
-        - name: Wechat
-          url: /images/sponsor/Wechat.jpeg
-          weight: 1
-        - name: Alipay
-          url: /images/sponsor/Alipay.jpeg
-          weight: 2
+    params:
+      colorScheme: avocado
+      author: 
+        name: Corewood LLC
+        image: "img/corewood-logo.png"
+        headline: "Solutions start at the core. We grow from there."
+        links:
+          - linkedin: https://www.linkedin.com/company/corewood-llc/
