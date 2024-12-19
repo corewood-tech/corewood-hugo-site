@@ -1,0 +1,23 @@
+baseURL: https://corewood.info
+languageCode: en-US
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+params:
+    contact:
+        email: hello@corewood.info
+        phone: +1 303 506 8116
+        whatsapp: +1 303 506 8116
+    menu:
+        main:
+            - url: /
+              title: Home
+            - url: /about-us
+              title: About Us
+    one:
+        enable: true
+        title: Building strong solutions from the core
+
+    subtitle: Building outward from core foundations
+title: Corewood LLC

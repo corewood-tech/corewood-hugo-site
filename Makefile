@@ -12,29 +12,25 @@ install: start_podman_machine
 
 clean:
 	@echo "> Removing stuff"
+	@rm -rf "$(site_dir)/pulbic" || exit 0
+	@rm "$(site_dir)/.hugo_build.lock" || exit 0
 
 dist:
 	@echo "> Compiling site for distribution"
 
-run:
+run: clean build_image
 	@echo "> Running Hugo server"
-	podman run -p 1313:1313 -v "$(PWD)/$(site_dir):/src" corewood-hugo-site server --forceSyncStatic --buildDrafts
-
-.PHONY: new_site
-new_site: build_image
-	@echo "> Creating a new site scaffold in $(site_dir). This will overwrite any existing site data, including content."
-	@read -p ">> Are you sure? [y/N] " ans && ans=$${ans:-N} ; \
-		if [ $${ans} = y ] || [ $${ans} = Y ]; then \
-			podman run -v "$(PWD)/$(site_dir):/home/site" corewood-hugo-site new site /home/site --force; \
-		else \
-			echo ">> Operation cancelled"; \
-		fi
+	podman run -it -p 1313:1313 -v "$(PWD)/$(site_dir):/src" corewood-hugo-site server --forceSyncStatic --buildDrafts --watch
 
 .PHONY: add_theme
-add_theme: theme_repo = https://github.com/sbruder/spectral
+add_theme: theme_repo = https://github.com/letItCurl/minimal_marketing
 add_theme:
 	@echo ">> Adding submodule for $(theme_repo)"
-	git submodule add "$(theme_repo)" "$(site_dir)/themes/installed"
+	git submodule add --force "$(theme_repo)" "$(site_dir)/themes/installed"
+
+update_submodules:
+	git submodule update --init --recursive
+
 
 .PHONY: install_yq
 install_yq: formula = yq
@@ -78,3 +74,14 @@ init_podman_machine: install_podman
 	else \
 		echo "Podman machine is initialized"; \
 	fi
+
+## Leaving this for documentation; shouldn't leave a loaded footgun in the repo
+# .PHONY: new_site 
+# new_site: build_image
+# 	@echo "> Creating a new site scaffold in $(site_dir). This will overwrite any existing site data, including content."
+# 	@read -p ">> Are you sure? [y/N] " ans && ans=$${ans:-N} ; \
+# 		if [ $${ans} = y ] || [ $${ans} = Y ]; then \
+# 			podman run -v "$(PWD)/$(site_dir):/home/site" corewood-hugo-site new site /home/site --force; \
+# 		else \
+# 			echo ">> Operation cancelled"; \
+# 		fi

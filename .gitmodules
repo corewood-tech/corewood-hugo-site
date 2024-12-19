@@ -1,3 +1,0 @@
-[submodule "src/themes/installed"]
-	path = src/themes/installed
-	url = https://github.com/sbruder/spectral
